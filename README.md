@@ -42,8 +42,11 @@ Running the flask app will show in the terminal the local url to access the api.
 
 send get request to :
 
--  `/market_cap` to access the total market value (estimation)
--  `/total_supply` to access the total supply of token
--  `/current_value` to get the token value in $
--  `/value_over/n/days` to get the value over the last n days, and the min and max in this period
+-  `/token/market_cap` to access the total market value (estimation)
+-  `/token/total_supply` to access the total supply of token
+-  `/token/current_value` to get the token value in $
+-  `/token/value_over/<n>/<delta>` to get the value over the last n day, minute, hour or year, and the min and max in this period
 
+&nbsp;
+
+- `/block/`

@@ -10,23 +10,23 @@ load_dotenv()
 app = Flask(__name__)
 
 
-@app.route('/market_cap')
+@app.route('/token/market_cap')
 def market_cap():
     return str(TokenController.market_cap())
 
 
-@app.route('/total_supply')
+@app.route('/token/total_supply')
 def total_supply():
     return str(TokenController.total_supply())
 
 
-@app.route('/current_value')
+@app.route('/token/current_value')
 def current_value():
     return str(token_value())
 
 
-@app.route('/value_over/<int:n>/days')
-def historical_value(n):
+@app.route('/token/value_over/<int:n>/<str:span>')
+def historical_value(n, span):
     return value_over_time(n)
 
 
