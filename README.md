@@ -49,4 +49,5 @@ send get request to :
 
 &nbsp;
 
-- `/block/`
+- `/block/last/n/size` to access size of the last n blocks
+- `block/last/n/time` to access the block time for the last n blocks
