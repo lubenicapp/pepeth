@@ -2,6 +2,8 @@
 
 this is a work in progress
 
+&nbsp;
+
 #### Run the project
 
 requirements : 
@@ -9,7 +11,7 @@ requirements :
     - python3
     - a virtual env (ideally)
 
-|
+&nbsp;
 
 to install dependencies, run
 
@@ -17,7 +19,8 @@ to install dependencies, run
 pip install -r requirements.txt
 ```
 
-|
+&nbsp;
+
 
 populate the `sample.env` with correct API keys and rename it `.env`
 
@@ -26,7 +29,7 @@ run the api with
 flask run
 ```
 
-|
+&nbsp;
 
 
 #### API 
