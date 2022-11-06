@@ -14,12 +14,10 @@ def token_value():
     return j['close']
 
 
-def value_over_time(n, span):
-    if span not in ['minute', 'hour', 'day', 'week', 'month', 'year']:
-        return 'error'
+def value_over_time(days):
     r = requests.get(os.getenv('POLYGON_ENDPOINT') + 'v2' +
-                     f"/aggs/ticker/X:MATICUSD/range/1/{span}/" +
-                     str(date.today() - timedelta(days=n)) + '/' + str(date.today()) +
+                     '/aggs/ticker/X:MATICUSD/range/1/day/' +
+                     str(date.today() - timedelta(days=days)) + '/' + str(date.today()) +
                      '?adjusted=true&sort=asc&limit=120&' +
                      f"apiKey={os.getenv('POLYGON_API_KEY')}")
     j = json.loads(r.text)
