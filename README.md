@@ -1,0 +1,46 @@
+### Pepeth
+
+this is a work in progress
+
+#### Run the project
+
+requirements : 
+
+    - python3
+    - a virtual env (ideally)
+
+|
+
+to install dependencies, run
+
+```bash 
+pip install -r requirements.txt
+```
+
+|
+
+populate the `sample.env` with correct API keys and rename it `.env`
+
+run the api with 
+```bash
+flask run
+```
+
+|
+
+
+#### API 
+
+This tool extract data directly from the polygon blockchain through **JSON-RPC** and querying **smart contracts**.
+It also gets data from external sources such as **polygon.io** api
+
+
+Running the flask app will show in the terminal the local url to access the api. Probably http://127.0.0.1:5000
+
+send get request to :
+
+-  `/market_cap` to access the total market value (estimation)
+-  `/total_supply` to access the total supply of token
+-  `/current_value` to get the token value in $
+-  `/value_over/n/days` to get the value over the last n days, and the min and max in this period
+
