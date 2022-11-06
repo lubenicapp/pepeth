@@ -25,7 +25,7 @@ def current_value():
     return str(token_value())
 
 
-@app.route('/token/value_over/<int:n>/<str:span>')
+@app.route('/token/value_over/<int:n>/<string:span>')
 def historical_value(n, span):
     return value_over_time(n)
 
