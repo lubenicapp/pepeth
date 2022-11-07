@@ -45,7 +45,7 @@ send get request to :
 -  `/token/market_cap` to access the total market value (estimation)
 -  `/token/total_supply` to access the total supply of token
 -  `/token/current_value` to get the token value in $
--  `/token/value_over/n/days` to get the value over the last n days, and the min and max in this period
+-  `/token/value_over/n/day` to get the value over the last n days, and the min and max in this period
 
 &nbsp;
 
