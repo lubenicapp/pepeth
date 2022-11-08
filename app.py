@@ -13,17 +13,17 @@ app = Flask(__name__)
 
 @app.route('/token/market_cap')
 def market_cap():
-    return json.dumps(TokenController.market_cap())
+    return json.dumps({'market_cap': TokenController.market_cap()})
 
 
 @app.route('/token/total_supply')
 def total_supply():
-    return json.dumps(TokenController.total_supply())
+    return json.dumps({'total_supply': TokenController.total_supply()})
 
 
 @app.route('/token/current_value')
 def current_value():
-    return json.dumps(token_value())
+    return json.dumps({'value': token_value()})
 
 
 @app.route('/token/value_over/<int:n>/day')
@@ -33,7 +33,7 @@ def historical_value(n):
 
 @app.route('/block/number')
 def latest_block_number():
-    return json.dumps(block_number())
+    return json.dumps({'last_block': block_number()})
 
 
 @app.route('/block/last/<int:n>/size')
