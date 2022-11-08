@@ -24,30 +24,16 @@ pip install -r requirements.txt
 
 populate the `sample.env` with correct API keys and rename it `.env`
 
-run the api with 
+run the web app with 
 ```bash
-flask run
+python3 app.py
 ```
 
 &nbsp;
 
 
-#### API 
+#### Enjoy
 
-This tool extract data directly from the polygon blockchain through **JSON-RPC** and querying **smart contracts**.
-It also gets data from external sources such as **polygon.io** api
+visit [the local server](http://127.0.0.1:8050/) 
 
 
-Running the flask app will show in the terminal the local url to access the api. Probably http://127.0.0.1:5000
-
-send get request to :
-
--  `/token/market_cap` to access the total market value (estimation)
--  `/token/total_supply` to access the total supply of token
--  `/token/current_value` to get the token value in $
--  `/token/value_over/n/day` to get the value over the last n days, and the min and max in this period
-
-&nbsp;
-
-- `/block/last/n/size` to access size of the last n blocks
-- `block/last/n/time` to access the block time for the last n blocks

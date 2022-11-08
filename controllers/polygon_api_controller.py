@@ -22,4 +22,4 @@ def value_over_time(days):
                      f"apiKey={os.getenv('POLYGON_API_KEY')}")
     j = json.loads(r.text)
     values = [x['o'] for x in j['results']]
-    return json.dumps({'values': values, 'min': min(values), 'max': max(values)})
+    return {'values': values, 'min': min(values), 'max': max(values)}
