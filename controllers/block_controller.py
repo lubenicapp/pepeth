@@ -9,7 +9,7 @@ def block_number():
 
 def blocks_prop(count=1000, prop='size'):
     last = block_number()
-    props = [0] * count
+    props = dict()
     threads = []
     for i in range(count):
         s = threading.Thread(target=get_block_data, args=(last - count + i, prop, props, i))
@@ -20,6 +20,6 @@ def blocks_prop(count=1000, prop='size'):
     return {prop: props}
 
 
-def get_block_data(nth_block, prop, data, index):
+def get_block_data(nth_block, prop, props, index):
     block = w3.eth.getBlock(nth_block)
-    data[index] = block[prop]
+    props[index] = (nth_block,  block[prop])
