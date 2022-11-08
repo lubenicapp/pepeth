@@ -12,12 +12,13 @@ def token_value_over_time(days):
     x.reverse()
     return graph(x, y, f"Token value over the last {days} days", 'lines red')
 
+
 def size_graph(size, graph_type='lines'):
     col = blocks_prop(size, 'size')
     v = sorted(col['size'].values(), key=lambda a: a[0])
     x = [e[0] for e in v]
     y = [e[1] for e in v]
-    return graph(x, y, 'Block Size', graph_type)
+    return graph(x, y, f"Block Size (last {size} blocks)", graph_type)
 
 
 def time_graph(size, graph_type='lines'):
@@ -25,7 +26,7 @@ def time_graph(size, graph_type='lines'):
     v = sorted(col['timestamp'].values(), key=lambda a: a[0])
     x = [e[0] for e in v]
     y = np.diff([e[1] for e in v])
-    return graph(x, y, 'Block mining time', graph_type)
+    return graph(x, y, f"Block mining time (last {size} blocks)", graph_type)
 
 
 def graph(x, y, title, graph_type='lines'):
