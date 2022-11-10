@@ -1,6 +1,6 @@
 import dash
-from dash import html
-from dash_elements.graph import size_graph, time_graph, token_value_over_time
+from dash import html, dcc
+from dash_elements.graph import size_graph, time_graph, token_value_over_time_graph
 from dotenv import load_dotenv
 import json
 import numpy as np
@@ -13,22 +13,18 @@ DAYS = 180
 
 app = dash.Dash(__name__)
 
-
-
-
-
 app.layout = html.Div(
     children=[
-        token_value_over_time(180),
+        token_value_over_time_graph(180),
         size_graph(SIZE, 'lines'),
         time_graph(SIZE, 'bar'),
-
+        dcc.Interval(
+            id='interval-component',
+            interval=14*1000, # in milliseconds
+            n_intervals=0
+        ),
     ]
 )
-
-
-
-
 
 
 if __name__ == "__main__":

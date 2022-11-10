@@ -6,7 +6,7 @@ from datetime import date, timedelta
 import numpy as np
 
 
-def token_value_over_time(days):
+def token_value_over_time_graph(days):
     y = value_over_time(days)['values']
     x = [str(date.today() - timedelta(days=i)) for i in range(days)]
     x.reverse()
