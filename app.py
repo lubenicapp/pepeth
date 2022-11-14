@@ -9,6 +9,7 @@ import dash_bootstrap_components as dbc
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
+from dash_extensions import Lottie       # pip install dash-extensions
 
 from controllers.token_controller import TokenController
 from controllers.polygon_api_controller import token_value, value_over_time
@@ -33,16 +34,15 @@ colors = {
 # Build the components
 header_component = html.H1("PEPETH : A Polygon Block Explorer", className = "text-center p-2", style = {'color': '#EFE9E7'}),
 under_header_component = html.H5("Check out the latest stats", className = "text-center p-2", style = {'color': '#EFE9E7'}),
-text_token_val = html.P("Token value", className="text-center"),
-text_block_n = html.P("Block count", className="text-center")
+
 
 # Graphs
 token = html.Div(token_value_over_time(365), style={'backgroundColor' : colors['background']}),
 size = size_graph(SIZE, 'lines'),
 time = time_graph(SIZE, 'lines'),
         # time_graph(SIZE, 'bar'),
-block_n = html.Span(block_number(), className="border rounded-top d-flex justify-content-center bg-light border mb-2"),
-token_val = html.Span(token_value(), className="border rounded-top position-relative text-center d-flex justify-content-center bg-light border mb-2"),
+block_n = html.Span(block_number(), className="justify-content-center"),
+token_val = html.Span(token_value(), className="text-center d-flex justify-content-center"),
 # total_supply = total_supply(),
 # market_cap = market_cap(),
 
@@ -53,8 +53,9 @@ navbar = dbc.NavbarSimple(
     children=[
         dbc.DropdownMenu(
             children=[
-                dbc.DropdownMenuItem("How it works", href="#"),
-                dbc.DropdownMenuItem("The statistics", href="#"),
+                dbc.DropdownMenuItem("How it works", href="works.html"),
+                dbc.DropdownMenuItem("Polygon stats", href="#"),
+                dbc.DropdownMenuItem("Other crypto stats", href="#"),
             ],
             nav=True,
             in_navbar=True,
@@ -97,50 +98,50 @@ jumbotron = html.Div(
 
 
 # Design the layout
-app.layout = html.Div(style={'background': colors['background']}, children=[
+app.layout = html.Div([
+
+dbc.Row(navbar),
+
+dbc.Container([
     
-        navbar, 
-        
         jumbotron,
      
 
-        dbc.Row(
-             under_header_component
-         ),
-
-
-         dbc.Row(
-            [dbc.Col(
-                text_token_val
-                ), 
-            
-            dbc.Col(
-               text_block_n
-                ),
-            
-            dbc.Col(
-                text_block_n
-                ) 
-            ]
-        ),
-
-
-        dbc.Row(
-            [dbc.Col(
-                token_val,              
-                ), 
-
-            
-            dbc.Col(
-                block_n
-                ),
-            
-            dbc.Col(
-                block_n
-                ) 
-            ]
-        ),
+    dbc.Row([
+        dbc.Col([
+            dbc.Card([
+                dbc.CardHeader(Lottie( width="67%", height="67%")),
+                dbc.CardBody([
+                    html.H6('Token value'),
+                    html.H2(token_val),
+                ], style={'textAlign':'center'})
+            ]),
+        ], width=4, 
+                className='mt-4 mb-4'),
         
+                dbc.Col([
+            dbc.Card([
+                dbc.CardHeader(Lottie( width="67%", height="67%")),
+                dbc.CardBody([
+                    html.H6('Current block'),
+                    html.H2(block_n),
+                ], style={'textAlign':'center'})
+            ]),
+        ], width=4, 
+                className='mt-4 mb-4'),
+                
+                             dbc.Col([
+            dbc.Card([
+                dbc.CardHeader(Lottie( width="67%", height="67%")),
+                dbc.CardBody([
+                    html.H6('Token value'),
+                    html.H2(token_val),
+                ], style={'textAlign':'center'})
+            ]),
+        ], width=4, 
+                className='mt-4 mb-4'),
+                
+        ]),
 
 
          
@@ -164,6 +165,7 @@ app.layout = html.Div(style={'background': colors['background']}, children=[
 
 
 )
+])
 
 
 
