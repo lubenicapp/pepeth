@@ -2,3 +2,5 @@ web3
 python-dotenv
 numpy
 dash
+plotly
+dash_bootstrap_components
